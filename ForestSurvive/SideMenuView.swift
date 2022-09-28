@@ -26,7 +26,7 @@ struct SideMenuView: View {
             }.font(.title)
                 .foregroundColor(.white)
             
-         
+         Text("test")
             
             Spacer()
         }
