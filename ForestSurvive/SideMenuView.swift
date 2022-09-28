@@ -20,13 +20,19 @@ struct SideMenuView: View {
                 .padding(.horizontal, 16)
                 .blur(radius: 0.5)
             
+            NavigationLink(destination: Map()){
+                Text("Map")
+            }
+            .font(.title)
+            .foregroundColor(.white)
+            
             
             Link(destination: URL(string: "https://github.com/ku6a-cj")!){
                 Text("GIT")
             }.font(.title)
                 .foregroundColor(.white)
             
-         Text("test")
+          
             
             Spacer()
         }

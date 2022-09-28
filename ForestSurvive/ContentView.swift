@@ -15,7 +15,7 @@ struct ContentView: View {
         NavigationView {
             
             ZStack{
-                Color.gray.ignoresSafeArea(.all, edges: .all)
+               // Color.gray.ignoresSafeArea(.all, edges: .all)
                 
                 
                 VStack {
