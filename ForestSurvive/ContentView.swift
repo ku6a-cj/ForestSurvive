@@ -15,6 +15,16 @@ struct ContentView: View {
     @State  var lat = 52.253188
     @State private var showWebView = false
     
+    init(){
+        let navBarApperance = UINavigationBarAppearance()
+        navBarApperance.titleTextAttributes=[.foregroundColor: UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)]
+        navBarApperance.largeTitleTextAttributes = [.foregroundColor:UIColor.systemBackground]
+        navBarApperance.backgroundColor = UIColor.white
+        navBarApperance.shadowColor = .clear
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarApperance
+        UINavigationBar.appearance().tintColor = UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)
+
+    }
     
     var body: some View {
         
@@ -113,12 +123,12 @@ struct ContentView: View {
                             
                         Image(systemName: "xmark")
                             .font(.title)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
                         }else{
                             
                         Image(systemName: "text.justify")
                             .font(.title)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
                         }
 
                     }
