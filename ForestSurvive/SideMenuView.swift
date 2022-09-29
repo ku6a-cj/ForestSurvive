@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct SideMenuView: View {
+    @Binding  var long: Double
+    @Binding  var lat: Double
+    @State  var long1:Double = 12.0
+    @State  var lat1:Double = 12.0
     var body: some View {
+
         VStack {
             Text("Settings")
                 .foregroundColor(Color.white)
@@ -19,9 +24,10 @@ struct SideMenuView: View {
                 .background(.white)
                 .padding(.horizontal, 16)
                 .blur(radius: 0.5)
+           
             
-            NavigationLink(destination: Map()){
-                Text("Map")
+            NavigationLink(destination: Map(long: $long, lat: $lat)){
+                Text("Set route to base")
             }
             .font(.title)
             .foregroundColor(.white)
@@ -49,7 +55,9 @@ struct SideMenuView: View {
 }
 
 struct SideMenuView_Previews: PreviewProvider {
+    @State static var long: Double = 0.0
+    @State static var lat: Double = 0.0
     static var previews: some View {
-        SideMenuView()
+        SideMenuView(long: $long, lat: $lat)
     }
 }

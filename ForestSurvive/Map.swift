@@ -13,8 +13,8 @@ struct Map: View {
     
     @State public var directions: [String] = []
     @State private var showDirections = false
-    @State public var long = 20.900672
-    @State public var lat = 52.253188
+    @Binding  var long: Double
+    @Binding  var lat: Double
     @State private var OK = true
 
     
@@ -23,20 +23,7 @@ struct Map: View {
 
         
         VStack{
-            HStack {
-                       TextField("Enter your latitude", value: $lat, format: .number)
-                           .textFieldStyle(.roundedBorder)
-                           .padding()
-                        TextField("Enter your longitude", value: $long, format: .number)
-                            .textFieldStyle(.roundedBorder)
-                            .padding()
-                
-                Button(action: {
-
-                }, label: {
-                    Text("OK")
-                })
-                   }
+          
             //mapView
 
                 MapView(directions: $directions, long: $long, lat: $lat)
@@ -72,9 +59,10 @@ struct Map: View {
 }
 
 struct Map_Previews: PreviewProvider {
-
+    @State static var long: Double = 0.0
+    @State static var lat: Double = 0.0
     static var previews: some View {
-        Map()
+        Map(long: $long, lat: $lat)
     }
 }
 
