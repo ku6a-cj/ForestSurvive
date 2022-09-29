@@ -48,7 +48,6 @@ struct ContentView: View {
                     
                     Text("Set your lat and long")
                     
-                    
                        
                     
                     
@@ -128,7 +127,7 @@ struct ContentView: View {
                             
                         Image(systemName: "text.justify")
                             .font(.title)
-                            .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
+                            .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00) ))
                         }
 
                     }

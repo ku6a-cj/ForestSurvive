@@ -75,7 +75,7 @@ struct calculator: View {
                 Spacer()
     
                 VStack {
-                    TextField("thousand", value: $thousand1, format: .number)
+                    TextField("thousand1", value: $thousand1, format: .number)
                         .multilineTextAlignment(TextAlignment.center)
                         .padding(.top, 7.0)
                     
@@ -92,7 +92,7 @@ struct calculator: View {
                         .stroke(.gray, lineWidth: 1))
                 Spacer()
                 VStack {
-                    TextField("degree", value: $degree1, format: .number)
+                    TextField("degree1", value: $degree1, format: .number)
                         .multilineTextAlignment(TextAlignment.center)
                         .padding(.top, 7.0)
                     
@@ -111,7 +111,7 @@ struct calculator: View {
             }
 
             Button {
-                degree1 =   0.05625 * thousand
+                degree1 =   0.05625 * thousand1
             } label: {
                 Text("calculate")
                     .padding(.all, 13.0)
