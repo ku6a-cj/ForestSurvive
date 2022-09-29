@@ -13,6 +13,7 @@
 		C972477C28E4A1B300E4BB80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C972477B28E4A1B300E4BB80 /* Preview Assets.xcassets */; };
 		C972478328E4AA7900E4BB80 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972478228E4AA7900E4BB80 /* SideMenuView.swift */; };
 		C972478528E4BBEA00E4BB80 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972478428E4BBEA00E4BB80 /* Map.swift */; };
+		C998116E28E5756B007AB58A /* calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998116D28E5756B007AB58A /* calculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		C972477B28E4A1B300E4BB80 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C972478228E4AA7900E4BB80 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C972478428E4BBEA00E4BB80 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C998116D28E5756B007AB58A /* calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				C972477A28E4A1B300E4BB80 /* Preview Content */,
 				C972478228E4AA7900E4BB80 /* SideMenuView.swift */,
 				C972478428E4BBEA00E4BB80 /* Map.swift */,
+				C998116D28E5756B007AB58A /* calculator.swift */,
 			);
 			path = ForestSurvive;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				C972478328E4AA7900E4BB80 /* SideMenuView.swift in Sources */,
 				C972477728E4A1B100E4BB80 /* ContentView.swift in Sources */,
 				C972478528E4BBEA00E4BB80 /* Map.swift in Sources */,
+				C998116E28E5756B007AB58A /* calculator.swift in Sources */,
 				C972477528E4A1B100E4BB80 /* ForestSurviveApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

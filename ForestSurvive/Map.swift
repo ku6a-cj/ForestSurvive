@@ -19,7 +19,7 @@ struct Map: View {
 
     
     var body: some View {
-        var mapView = MapView(directions: $directions, long: $long, lat: $lat)
+       // var mapView = MapView(directions: $directions, long: $long, lat: $lat)
 
         
         VStack{
@@ -32,14 +32,16 @@ struct Map: View {
                             .padding()
                 
                 Button(action: {
-                    OK.toggle()
+
                 }, label: {
                     Text("OK")
                 })
                    }
-            mapView
+            //mapView
 
-            //MapView(directions: $directions, long: $long, lat: $lat)
+                MapView(directions: $directions, long: $long, lat: $lat)
+
+
             
             Button(action: {
                 self.showDirections.toggle()
@@ -94,7 +96,7 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         
         //seting a region that will be shown at the beginning
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 52.253188, longitude: 20.900672), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
         mapView.setRegion(region , animated: true)
         
 
@@ -128,6 +130,7 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        
     }
     
     class MapViewCoordinator: NSObject, MKMapViewDelegate{
