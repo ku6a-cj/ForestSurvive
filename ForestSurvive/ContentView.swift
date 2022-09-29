@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     
     @State private var showMenu: Bool = false
     @State  var long = 20.900672
     @State  var lat = 52.253188
+    
     
     var body: some View {
         NavigationView {
@@ -22,13 +24,47 @@ struct ContentView: View {
                 
                 VStack {
                     Text("Set your lat and long")
+                    
+                    
+                       
+                    
+                    
+                    
                     HStack {
-                               TextField("Enter your latitude", value: $lat, format: .number)
-                                   .textFieldStyle(.roundedBorder)
-                                   .padding()
-                                TextField("Enter your longitude", value: $long, format: .number)
-                                    .textFieldStyle(.roundedBorder)
-                                    .padding()
+                        VStack {
+                            TextField("latitude", value: $lat, format: .number)
+                                .multilineTextAlignment(TextAlignment.center)
+                                .padding(.top, 7.0)
+                            
+                            Divider()
+                                .frame(height: 1)
+                                .background(.gray)
+                                .padding(.horizontal, 16)
+                                .blur(radius: 0.5)
+                            
+                            Text("latitude")
+                                .padding(.bottom, 5.0)
+                        }.overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(.gray, lineWidth: 1))
+                        Spacer()
+                        VStack {
+                            TextField("longitude", value: $long, format: .number)
+                                .multilineTextAlignment(TextAlignment.center)
+                                .padding(.top, 7.0)
+                            
+                            Divider()
+                                .frame(height: 1)
+                                .background(.gray)
+                                .padding(.horizontal, 16)
+                                .blur(radius: 0.5)
+                            
+                            Text("longitude")
+                                .padding(.bottom, 5.0)
+                        }.overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(.gray, lineWidth: 1))
+                        Spacer()
                         
     //                    Button(action: {
     //
@@ -36,7 +72,9 @@ struct ContentView: View {
     //                        Text("OK")
     //                    })
                     }
+
                 }
+            
                 
                 GeometryReader{ geo in
                     
@@ -49,7 +87,7 @@ struct ContentView: View {
                 }
                 .background(Color.mint.opacity(showMenu ? 0.5 : 0))
             }
-           // .navigationTitle("Side Menu Demo")
+            .navigationTitle("Forset Survive")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarLeading){
