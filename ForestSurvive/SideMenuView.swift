@@ -13,7 +13,6 @@ struct SideMenuView: View {
     @State  var long1:Double = 12.0
     @State  var lat1:Double = 12.0
     var body: some View {
-
         VStack {
             Text("Settings")
                 .foregroundColor(Color.white)
@@ -49,7 +48,7 @@ struct SideMenuView: View {
             Spacer()
         }
         .padding(16)
-        .background(Color.mint)
+        .background(Color.green)
         .edgesIgnoringSafeArea(.bottom)
     }
 }
@@ -61,3 +60,4 @@ struct SideMenuView_Previews: PreviewProvider {
         SideMenuView(long: $long, lat: $lat)
     }
 }
+

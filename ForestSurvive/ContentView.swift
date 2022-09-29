@@ -13,16 +13,29 @@ struct ContentView: View {
     @State private var showMenu: Bool = false
     @State  var long = 20.900672
     @State  var lat = 52.253188
+    @State private var showWebView = false
     
     
     var body: some View {
+        
         NavigationView {
             
             ZStack{
                // Color.gray.ignoresSafeArea(.all, edges: .all)
-                
-                
                 VStack {
+//                    Button {
+//                        showWebView.toggle()
+//                    } label: {
+//                        Text("WATSide")
+//                    }
+//                    .sheet(isPresented: $showWebView) {
+//                        WebView(url: URL(string: "https://www.wojsko-polskie.pl/wat/articles/list/aktualnosci-w/")!)
+//                    }
+                    
+                    WebView(url: URL(string: "https://www.wojsko-polskie.pl/wat/articles/list/aktualnosci-w/")!)
+                    
+                    
+                    
                     Text("Set your lat and long")
                     
                     
@@ -85,7 +98,7 @@ struct ContentView: View {
                             //.offset(x: UIScreen.main.bounds.width)
                     }
                 }
-                .background(Color.mint.opacity(showMenu ? 0.5 : 0))
+                .background(Color.green.opacity(showMenu ? 0.5 : 0))
             }
             .navigationTitle("Forset Survive")
             .navigationBarTitleDisplayMode(.inline)
@@ -94,6 +107,7 @@ struct ContentView: View {
                     Button{
                         //print("show menu")
                         self.showMenu.toggle()
+                        
                     } label: {
                         if(showMenu){
                             
