@@ -9,9 +9,9 @@ import SwiftUI
 
 struct RankingPoints: View {
     @State var GenderChoice = "Select your gender"
-    @State var  selectedFrameworkIndex = 1
-    @State var  secondSelectedFrameworkIndex = 1
-    @State var  thirdSelectedFrameworkIndex = 1
+    @State var  selectedFrameworkIndex = 0
+    @State var  secondSelectedFrameworkIndex = 0
+    @State var  thirdSelectedFrameworkIndex = 0
     @State var frameworksFirscCompetitionMan = ["5:01>","4:36-5:00","4:11-4:35","3:46-4:10","3:45<"]
     @State var frameworksFirscCompetitionWoman = ["5:01>","4:36-5:00","4:11-4:35","3:46-4:10","3:45<"]
     @State var frameworksSecondCompetitionMan = ["0-1","2","3","4","5","6","7-8","9-10","11>"]
@@ -24,15 +24,41 @@ struct RankingPoints: View {
     @State var FirstCompetitionName = "First Competition"
     @State var SecondCompetitionName = "Second Competition"
     @State var ThirdCompetitionName = "Second Competition"
-    @State var FirstSubjectName = "Matematic"
+    @State var FirstSubjectName = "Interview"
     @State var FirstSubjectProc = 0
-    @State var AllPoints = 0
+    @State var SecondSubjectName = "Matematic"
+    @State var SecondSubjectProc = 0.0
+    @State var SecondSubjectExtended = false
+    @State var ThirdSubjectName = "Subject selected"
+    @State var ThirdSubjectProc = 0.0
+    @State var ThirdSubjectExtended = false
+    @State var FourthSubjectName = "Native language"
+    @State var FourthSubjectProc = 0.0
+    @State var FourthSubjectExtended = false
+    @State var FifthSubjectName = "English language"
+    @State var FifthSubjectProc = 0.0
+    @State var FifthSubjectExtended = false
+    @State var AllPoints = 0.0
     @State var PePoints = 0
-    @State var MaturaPoints = 0
+    @State var InterviewPoints = 0
+    @State var MaturaPoints = 0.0
+    @State private var isEditing = false
+    @State private var isEditing2 = false
+    @State private var isEditing3 = false
+    @State private var isEditing4 = false
+    @State var SecondSubjectProcFin = 0.0
+    @State var ThirdSubjectProcFin = 0.0
+    @State var FourthSubjectProcFin = 0.0
+    @State var FifthSubjectProcFin = 0.0
+    @State var GenderChoiceImage = "person.circle.fill"
     
-    
-    
-    
+    func testNumberAsString(_ numberAsString: String) -> NSDecimalNumber{
+        let num = NSDecimalNumber.init(string: numberAsString)
+        let behaviour = NSDecimalNumberHandler(roundingMode:.down, scale: 2, raiseOnExactness: false,  raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
+        let numRounded = num.rounding(accordingToBehavior: behaviour)
+
+        return numRounded
+    }
     
     
     var body: some View {
@@ -61,7 +87,7 @@ struct RankingPoints: View {
             }label:{
                 Label(
                     title:{Text("\(GenderChoice)")},
-                    icon: {Image(systemName:"person.circle.fill")}
+                    icon: {Image(systemName: GenderChoiceImage)}
                 ).foregroundColor(Color.black)
             }
             if(GenderChoice=="male"){
@@ -78,24 +104,17 @@ struct RankingPoints: View {
                                 Text(self.frameworksFirscCompetitionMan[$0])
                             }
                         }
-                    }
-                    
-                    Section {
                         Picker(selection: $secondSelectedFrameworkIndex, label: Text("\(SecondCompetitionName)")) {
                             ForEach(0 ..< frameworksSecondCompetitionMan.count) {
                                 Text(self.frameworksSecondCompetitionMan[$0])
                             }
                         }
-                    }
-                    
-                    Section {
                         Picker(selection: $thirdSelectedFrameworkIndex, label: Text("\(ThirdCompetitionName)")) {
                             ForEach(0 ..< frameworksThirdCompetitionMan.count) {
                                 Text(self.frameworksThirdCompetitionMan[$0])
                             }
                         }
                     }
-                    
                 }else{
                     Section {
                         Picker(selection: $selectedFrameworkIndex, label: Text("\(FirstCompetitionName)")) {
@@ -103,59 +122,215 @@ struct RankingPoints: View {
                                 Text(self.frameworksFirscCompetitionWoman[$0])
                             }
                         }
-                    }
-                    
-                    Section {
                         Picker(selection: $secondSelectedFrameworkIndex, label: Text("\(SecondCompetitionName)")) {
                             ForEach(0 ..< frameworksSecondCompetitionWoman.count) {
                                 Text(self.frameworksSecondCompetitionWoman[$0])
                             }
                         }
-                    }
-                    
-                    Section {
                         Picker(selection: $thirdSelectedFrameworkIndex, label: Text("\(ThirdCompetitionName)")) {
                             ForEach(0 ..< frameworksThirdCompetitionWoman.count) {
                                 Text(self.frameworksThirdCompetitionWoman[$0])
                             }
                         }
                     }
-                }
-                
-                Text("\(FirstSubjectName)")
-                TextField("", value: $FirstSubjectProc, formatter: NumberFormatter())
-                        .frame(width: 50)
-                    Stepper(value: $FirstSubjectProc, in: 0...100) {
-                        EmptyView()
                     }
                 
+                
+                Section{
+                    
+                    Toggle(isOn:$SecondSubjectExtended , label: {
+                        HStack{
+                            Text("\(SecondSubjectName)")
+                            Text("\(testNumberAsString("\(String(SecondSubjectProc))"))")
+                                .foregroundColor(isEditing ? .red : Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
+                            Spacer()
+                            Text("Extended")
+                        }
+                    })
+                    
+                    
+                  
+                    Slider(value: $SecondSubjectProc,
+                            in: 0...100,
+                            step: 1
+                        ) {
+                            Text("SecondSubjectProc")
+                        } minimumValueLabel: {
+                            Text("0")
+                        } maximumValueLabel: {
+                            Text("100")
+                        } onEditingChanged: { editing in
+                            isEditing = editing
+                        }
+                    
+                    
+                    Toggle(isOn:$ThirdSubjectExtended , label: {
+                        HStack{
+                            Text("\(ThirdSubjectName)")
+                            Text("\(testNumberAsString("\(String(ThirdSubjectProc))"))")
+                                .foregroundColor(isEditing2 ? .red : Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
+                            Spacer()
+                            Text("Extended")
+                        }
+                    })
+                    
+                    
+                  
+                    Slider(value: $ThirdSubjectProc,
+                            in: 0...100,
+                            step: 1
+                        ) {
+                            Text("SecondSubjectProc")
+                        } minimumValueLabel: {
+                            Text("0")
+                        } maximumValueLabel: {
+                            Text("100")
+                        } onEditingChanged: { editing in
+                            isEditing2 = editing
+                        }
+                    
+                    
+                    Toggle(isOn:$FourthSubjectExtended , label: {
+                        HStack{
+                            Text("\(FourthSubjectName)")
+                            Text("\(testNumberAsString("\(String(FourthSubjectProc))"))")
+                                .foregroundColor(isEditing3 ? .red : Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
+                            Spacer()
+                            Text("Extended")
+                        }
+                    })
+                    
+                    
+                  
+                    Slider(value: $FourthSubjectProc,
+                            in: 0...100,
+                            step: 1
+                        ) {
+                            Text("SecondSubjectProc")
+                        } minimumValueLabel: {
+                            Text("0")
+                        } maximumValueLabel: {
+                            Text("100")
+                        } onEditingChanged: { editing in
+                            isEditing3 = editing
+                        }
+                    
+                    Toggle(isOn:$FifthSubjectExtended , label: {
+                        HStack{
+                            Text("\(FifthSubjectName)")
+                            Text("\(testNumberAsString("\(String(FifthSubjectProc))"))")
+                                .foregroundColor(isEditing4 ? .red : Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
+                            Spacer()
+                            Text("Extended")
+                        }
+                    })
+                    
+                    
+                  
+                    Slider(value: $FifthSubjectProc,
+                            in: 0...100,
+                            step: 1
+                        ) {
+                            Text("SecondSubjectProc")
+                        } minimumValueLabel: {
+                            Text("0")
+                        } maximumValueLabel: {
+                            Text("100")
+                        } onEditingChanged: { editing in
+                            isEditing4 = editing
+                        }
+                    
+                }
+                
+                
+                
+                Section{
+                    HStack{
+                        Text("\(FirstSubjectName)")
+                        Text("\(FirstSubjectProc)")
+                            .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
+                            Spacer()
+                            Stepper(value: $FirstSubjectProc, in: 0...30) {
+                                EmptyView()
+                            }
+                    }
+
+                }
+                
+                       
             }
             
 
 
 
-            Button {
-                FirstCompetitionPoints = selectedFrameworkIndex
-                SecondCompetitionPoints = secondSelectedFrameworkIndex
-                ThirdCompetitionPoints = thirdSelectedFrameworkIndex
-                PePoints = FirstCompetitionPoints + SecondCompetitionPoints + ThirdCompetitionPoints
-                AllPoints = PePoints + MaturaPoints
-            } label: {
-                Text("calculate")
-                    .padding(.all, 13.0)
-                    .colorMultiply(Color.black)
-            }
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
+            VStack {
+                Button {
+                    FirstCompetitionPoints = selectedFrameworkIndex
+                    SecondCompetitionPoints = secondSelectedFrameworkIndex
+                    ThirdCompetitionPoints = thirdSelectedFrameworkIndex
+                    PePoints = FirstCompetitionPoints + SecondCompetitionPoints + ThirdCompetitionPoints
+                    InterviewPoints = FirstSubjectProc
+                    
+                    if(SecondSubjectExtended == false){
+                        SecondSubjectProcFin = SecondSubjectProc * 0.5 * 0.45
+                    }else{
+                        SecondSubjectProcFin = SecondSubjectProc * 0.45
+                    }
+                    
+                    if(ThirdSubjectExtended == false){
+                        ThirdSubjectProcFin = ThirdSubjectProc * 0.5 * 0.3
+                    }else{
+                        ThirdSubjectProcFin = ThirdSubjectProc * 0.3
+                    }
+                    
+                    if(FourthSubjectExtended == false){
+                        FourthSubjectProcFin = FourthSubjectProc * 0.5 * 0.05
+                    }else{
+                        FourthSubjectProcFin = FourthSubjectProc * 0.05
+                    }
+                    
+                    if(FifthSubjectExtended == false){
+                        FifthSubjectProcFin = FifthSubjectProc * 0.5 * 0.2
+                    }else{
+                        FifthSubjectProcFin = FifthSubjectProc * 0.2
+                    }
+                    
+                    MaturaPoints = SecondSubjectProcFin + ThirdSubjectProcFin + FourthSubjectProcFin + FifthSubjectProcFin
+                    AllPoints = Double(PePoints + InterviewPoints) + MaturaPoints
+                } label: {
+                    Text("calculate")
+                        .padding(.all, 13.0)
+                        .colorMultiply(Color.black)
+                }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
                     .stroke(.gray, lineWidth: 1))
-            
-            
-            HStack{
-                Text("PE Points = \(PePoints)")
-                Text("Matura Points = \(MaturaPoints)")
+                
+                
+                HStack{
+                    Spacer()
+                    VStack {
+                        Text("PE Points")
+                        Text("\(PePoints)")
+                    }
+                    Spacer()
+                    VStack {
+                        Text("Matura Points")
+                        Text("\(testNumberAsString("\(String(MaturaPoints))"))")
+                    }
+                    Spacer()
+                    VStack {
+                        Text("Interview Points")
+                        Text("\(InterviewPoints)")
+                    }
+                    Spacer()
+                }
             }
             
-            Text("Total points = \(AllPoints)")
+            
+        
+            
+         //   Text("Total points = \(AllPoints)")
             
         }
     }
