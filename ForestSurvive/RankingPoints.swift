@@ -61,6 +61,8 @@ struct RankingPoints: View {
     }
     
     
+    
+    
     var body: some View {
         
         
@@ -98,7 +100,7 @@ struct RankingPoints: View {
             }
             Form {
                 if(GenderChoice == "male"){
-                    Section {
+                    Section(header: Text("Sport")) {
                         Picker(selection: $selectedFrameworkIndex, label: Text("\(FirstCompetitionName)")) {
                             ForEach(0 ..< frameworksFirscCompetitionMan.count) {
                                 Text(self.frameworksFirscCompetitionMan[$0])
@@ -116,7 +118,7 @@ struct RankingPoints: View {
                         }
                     }
                 }else{
-                    Section {
+                    Section(header: Text("Sport")) {
                         Picker(selection: $selectedFrameworkIndex, label: Text("\(FirstCompetitionName)")) {
                             ForEach(0 ..< frameworksFirscCompetitionWoman.count) {
                                 Text(self.frameworksFirscCompetitionWoman[$0])
@@ -136,7 +138,7 @@ struct RankingPoints: View {
                     }
                 
                 
-                Section{
+                Section(header: Text("Matura")){
                     
                     Toggle(isOn:$SecondSubjectExtended , label: {
                         HStack{
@@ -244,7 +246,7 @@ struct RankingPoints: View {
                 
                 
                 
-                Section{
+                Section(header: Text("Interview")){
                     HStack{
                         Text("\(FirstSubjectName)")
                         Text("\(FirstSubjectProc)")
@@ -297,6 +299,8 @@ struct RankingPoints: View {
                     
                     MaturaPoints = SecondSubjectProcFin + ThirdSubjectProcFin + FourthSubjectProcFin + FifthSubjectProcFin
                     AllPoints = Double(PePoints + InterviewPoints) + MaturaPoints
+                    Shared.shared.MyPoints = AllPoints
+                    
                 } label: {
                     Text("calculate")
                         .padding(.all, 13.0)

@@ -14,6 +14,7 @@ struct ContentView: View {
     @State  var long = 20.900672
     @State  var lat = 52.253188
     @State private var showWebView = false
+    @State var MyPoints1 = Shared.shared.MyPoints
     
     init(){
         let navBarApperance = UINavigationBarAppearance()
@@ -26,75 +27,93 @@ struct ContentView: View {
 
     }
     
+   
+    
     var body: some View {
         
         NavigationView {
             
             ZStack{
                // Color.gray.ignoresSafeArea(.all, edges: .all)
-                VStack {
-//                    Button {
-//                        showWebView.toggle()
-//                    } label: {
-//                        Text("WATSide")
-//                    }
-//                    .sheet(isPresented: $showWebView) {
-//                        WebView(url: URL(string: "https://www.wojsko-polskie.pl/wat/articles/list/aktualnosci-w/")!)
-//                    }
-                    
-     
-                    
-                    
-                    
-                    Text("Set your lat and long")
-                    
-                       
-                    
-                    
-                    
-                    HStack {
-                        VStack {
-                            TextField("latitude", value: $lat, format: .number)
-                                .multilineTextAlignment(TextAlignment.center)
-                                .padding(.top, 7.0)
-                            
-                            Divider()
-                                .frame(height: 1)
-                                .background(.gray)
-                                .padding(.horizontal, 16)
-                                .blur(radius: 0.5)
-                            
-                            Text("latitude")
-                                .padding(.bottom, 5.0)
-                        }.overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(.gray, lineWidth: 1))
-                        Spacer()
-                        VStack {
-                            TextField("longitude", value: $long, format: .number)
-                                .multilineTextAlignment(TextAlignment.center)
-                                .padding(.top, 7.0)
-                            
-                            Divider()
-                                .frame(height: 1)
-                                .background(.gray)
-                                .padding(.horizontal, 16)
-                                .blur(radius: 0.5)
-                            
-                            Text("longitude")
-                                .padding(.bottom, 5.0)
-                        }.overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(.gray, lineWidth: 1))
-                        Spacer()
+                Form {
+                    Section(header: Text("Your points") ){
+                        HStack{
+                            Spacer()
+                            VStack{
+                                Text(String(MyPoints1 ?? 0))
+                                    .padding(.top)
+                                Button {
+                                    MyPoints1 = Shared.shared.MyPoints
+                                } label: {
+                                    Image(systemName: "arrow.clockwise")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30)
+                                        .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
+                                        .padding(.all, 13.0)
                         
-    //                    Button(action: {
-    //
-    //                    }, label: {
-    //                        Text("OK")
-    //                    })
+                                    
+                                    
+                                        
+                                        
+                                }
+                            }
+                            Spacer()
+                            
+                            Image(systemName: "figure.archery")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 80)
+                                .padding(.leading, 100.0)
+                            
+                            Spacer()
+                                
+                                
+                         
+                        }
+                      
                     }
-
+                    Section(header: Text("Set your latitude and longitude") ) {
+                        VStack {
+                            HStack {
+                                VStack {
+                                    TextField("latitude", value: $lat, format: .number)
+                                        .multilineTextAlignment(TextAlignment.center)
+                                        .padding(.top, 7.0)
+                                    
+                                    Divider()
+                                        .frame(height: 1)
+                                        .background(.gray)
+                                        .padding(.horizontal, 16)
+                                        .blur(radius: 0.5)
+                                    
+                                    Text("latitude")
+                                        .padding(.bottom, 5.0)
+                                }.overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke(.gray, lineWidth: 1))
+                                Spacer()
+                                VStack {
+                                    TextField("longitude", value: $long, format: .number)
+                                        .multilineTextAlignment(TextAlignment.center)
+                                        .padding(.top, 7.0)
+                                    
+                                    Divider()
+                                        .frame(height: 1)
+                                        .background(.gray)
+                                        .padding(.horizontal, 16)
+                                        .blur(radius: 0.5)
+                                    
+                                    Text("longitude")
+                                        .padding(.bottom, 5.0)
+                                }.overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke(.gray, lineWidth: 1))
+                                Spacer()
+                            }
+                          
+                        }
+                    }
                 }
             
                 
@@ -114,17 +133,13 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarLeading){
                     Button{
-                        //print("show menu")
                         self.showMenu.toggle()
-                        
                     } label: {
                         if(showMenu){
-                            
                         Image(systemName: "xmark")
                             .font(.title)
                             .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
                         }else{
-                            
                         Image(systemName: "text.justify")
                             .font(.title)
                             .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00) ))
