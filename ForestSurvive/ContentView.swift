@@ -42,7 +42,7 @@ struct ContentView: View {
 //                        WebView(url: URL(string: "https://www.wojsko-polskie.pl/wat/articles/list/aktualnosci-w/")!)
 //                    }
                     
-                    WebView(url: URL(string: "https://www.wojsko-polskie.pl/wat/articles/list/aktualnosci-w/")!)
+     
                     
                     
                     

@@ -44,6 +44,13 @@ struct SideMenuView: View {
             .foregroundColor(.white)
             
             
+            NavigationLink(destination: News()){
+                Text("News")
+            }
+            .font(.title)
+            .foregroundColor(.white)
+            
+            
             Link(destination: URL(string: "https://github.com/ku6a-cj")!){
                 Text("GIT")
             }.font(.title)
