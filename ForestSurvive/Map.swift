@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 import CoreLocation
+import Contacts
 
 struct Map: View {
     
@@ -92,15 +93,17 @@ struct MapView: UIViewRepresentable {
         
       
     
+        let address = [CNPostalAddressStreetKey: "WAT gen. Sylwestra Kaliskiego 2 „Omnia pro patria” ", CNPostalAddressCityKey: "Warsaw", CNPostalAddressPostalCodeKey: "00-908", CNPostalAddressISOCountryCodeKey: "PL"]
         
-        //NYC
-        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
-        //Boston
-        let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 52.239012, longitude: 20.913964))
+        let address1 = [CNPostalAddressStreetKey:"Your location"]
+
+        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 52.253188, longitude: 20.900672), addressDictionary: address)
+
+        let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long),addressDictionary: address1)
         
         let request = MKDirections.Request()
-        request.source=MKMapItem(placemark: p1)
-        request.destination=MKMapItem(placemark: p2)
+        request.source=MKMapItem(placemark: p2)
+        request.destination=MKMapItem(placemark: p1)
         //type of a transport tha will be shown route for
         request.transportType = .walking
         

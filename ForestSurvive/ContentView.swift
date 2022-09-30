@@ -11,8 +11,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showMenu: Bool = false
-    @State  var long = 20.900672
-    @State  var lat = 52.253188
+    @State  var long = 21.0
+    @State  var lat = 53.0
     @State private var showWebView = false
     @State var MyPoints1 = Shared.shared.MyPoints
     
