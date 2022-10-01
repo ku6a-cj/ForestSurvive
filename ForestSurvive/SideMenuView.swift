@@ -26,7 +26,7 @@ struct SideMenuView: View {
            
             
             NavigationLink(destination: Map(long: $long, lat: $lat)){
-                Text("Set route to base")
+                Text("Set route to Academy")
             }
             .font(.title)
             .foregroundColor(.white)
