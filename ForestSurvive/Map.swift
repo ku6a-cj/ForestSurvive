@@ -95,7 +95,7 @@ struct MapView: UIViewRepresentable {
     
         let address = [CNPostalAddressStreetKey: "WAT gen. Sylwestra Kaliskiego 2 „Omnia pro patria” ", CNPostalAddressCityKey: "Warsaw", CNPostalAddressPostalCodeKey: "00-908", CNPostalAddressISOCountryCodeKey: "PL"]
         
-        let address1 = [CNPostalAddressStreetKey:"Your location"]
+        let address1 = [CNPostalAddressStreetKey: "Your location", CNPostalAddressCityKey: "", CNPostalAddressPostalCodeKey: "", CNPostalAddressISOCountryCodeKey: "PL"]
 
         let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 52.253188, longitude: 20.900672), addressDictionary: address)
 
