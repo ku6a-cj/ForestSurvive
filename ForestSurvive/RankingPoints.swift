@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct RankingPoints: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(sortDescriptors: []) // here i can sort resoults
+    private var tasks: FetchedResults<Task>
+    
     @State var GenderChoice = "Select your gender"
     @State var  selectedFrameworkIndex = 0
     @State var  secondSelectedFrameworkIndex = 0
@@ -301,6 +306,8 @@ struct RankingPoints: View {
                     AllPoints = Double(PePoints + InterviewPoints) + MaturaPoints
                     Shared.shared.MyPoints = AllPoints
                     
+                    addResoult()
+                    
                 } label: {
                     Text("calculate")
                         .padding(.all, 13.0)
@@ -337,9 +344,33 @@ struct RankingPoints: View {
          //   Text("Total points = \(AllPoints)")
             
         }
+        
+        
+    
     }
     
     
+    private func saveContext(){
+        withAnimation(){
+            do{
+                try viewContext.save()
+            } catch {
+                let error = error as NSError
+                fatalError("Unresolved Error: \(error)")
+            }
+        }
+      
+    }
+        
+       
+    private func addResoult(){
+        let newResoult = Task(context: viewContext)
+        newResoult.title = " My Score: \(String(AllPoints)) \(Date().formatted(date: .numeric, time: .shortened))"
+        newResoult.date = Date()
+            //save data
+        saveContext()
+        
+    }
     
     struct RankingPoints_Previews: PreviewProvider {
         static var previews: some View {
