@@ -53,7 +53,7 @@ struct ContentView: View {
             ZStack{
                 // Color.gray.ignoresSafeArea(.all, edges: .all)
                 Form {
-                    Section(header: Text("Your last simulation  points") ){
+                    Section(header: Text("Your Last Limulation  Score") ){
                         HStack{
                             Spacer()
                             VStack{
