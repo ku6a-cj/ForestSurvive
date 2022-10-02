@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C937947828E9C648000E53D2 /* FitnessCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937947728E9C648000E53D2 /* FitnessCalc.swift */; };
+		C937947A28E9C88B000E53D2 /* BmiCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937947928E9C88B000E53D2 /* BmiCalc.swift */; };
+		C937947C28E9C973000E53D2 /* HRmaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937947B28E9C973000E53D2 /* HRmaxView.swift */; };
 		C971ECE728E99B6C00D29DB5 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971ECE628E99B6C00D29DB5 /* DeviceLocationService.swift */; };
 		C971ECED28E99FD200D29DB5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971ECEC28E99FD200D29DB5 /* MapView.swift */; };
 		C972477528E4A1B100E4BB80 /* ForestSurviveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972477428E4A1B100E4BB80 /* ForestSurviveApp.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C937947728E9C648000E53D2 /* FitnessCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessCalc.swift; sourceTree = "<group>"; };
+		C937947928E9C88B000E53D2 /* BmiCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmiCalc.swift; sourceTree = "<group>"; };
+		C937947B28E9C973000E53D2 /* HRmaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRmaxView.swift; sourceTree = "<group>"; };
 		C971ECE628E99B6C00D29DB5 /* DeviceLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceLocationService.swift; path = "../../../../.Trash/Kilo-Loco content main apple-device-location-ios/device-location-ios/DeviceLocationService.swift"; sourceTree = "<group>"; };
 		C971ECEC28E99FD200D29DB5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C972477128E4A1B100E4BB80 /* ForestSurvive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForestSurvive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +62,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C937947D28E9C9A2000E53D2 /* fitnessCalculators */ = {
+			isa = PBXGroup;
+			children = (
+				C937947B28E9C973000E53D2 /* HRmaxView.swift */,
+				C937947928E9C88B000E53D2 /* BmiCalc.swift */,
+			);
+			path = fitnessCalculators;
+			sourceTree = "<group>";
+		};
+		C937947E28E9C9B7000E53D2 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				C971ECEC28E99FD200D29DB5 /* MapView.swift */,
+				C972478428E4BBEA00E4BB80 /* Map.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		C937947F28E9C9E4000E53D2 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				C9A2D8FF28E82F19001F8590 /* Resoults.xcdatamodeld */,
+				C9A2D90228E83002001F8590 /* Persistance.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		C972476828E4A1B100E4BB80 = {
 			isa = PBXGroup;
 			children = (
@@ -78,16 +111,16 @@
 				C972477428E4A1B100E4BB80 /* ForestSurviveApp.swift */,
 				C995F36628E9B521002D6DFD /* Calendar.swift */,
 				C972478228E4AA7900E4BB80 /* SideMenuView.swift */,
-				C972478428E4BBEA00E4BB80 /* Map.swift */,
-				C971ECEC28E99FD200D29DB5 /* MapView.swift */,
 				C998116D28E5756B007AB58A /* calculator.swift */,
 				C998117428E595A1007AB58A /* WebView.swift */,
 				C97F94B428E6DA9700152623 /* News.swift */,
 				C9CC6B5028E61BB700D2159D /* RankingPoints.swift */,
 				C972477628E4A1B100E4BB80 /* ContentView.swift */,
+				C937947728E9C648000E53D2 /* FitnessCalc.swift */,
+				C937947D28E9C9A2000E53D2 /* fitnessCalculators */,
+				C937947E28E9C9B7000E53D2 /* Maps */,
+				C937947F28E9C9E4000E53D2 /* DataBase */,
 				C97F94B628E6E40D00152623 /* File.swift */,
-				C9A2D8FF28E82F19001F8590 /* Resoults.xcdatamodeld */,
-				C9A2D90228E83002001F8590 /* Persistance.swift */,
 				C971ECE628E99B6C00D29DB5 /* DeviceLocationService.swift */,
 				C972477828E4A1B300E4BB80 /* Assets.xcassets */,
 				C972477A28E4A1B300E4BB80 /* Preview Content */,
@@ -176,6 +209,7 @@
 				C972478328E4AA7900E4BB80 /* SideMenuView.swift in Sources */,
 				C972477728E4A1B100E4BB80 /* ContentView.swift in Sources */,
 				C97F94B528E6DA9700152623 /* News.swift in Sources */,
+				C937947A28E9C88B000E53D2 /* BmiCalc.swift in Sources */,
 				C972478528E4BBEA00E4BB80 /* Map.swift in Sources */,
 				C971ECED28E99FD200D29DB5 /* MapView.swift in Sources */,
 				C9A2D90128E82F19001F8590 /* Resoults.xcdatamodeld in Sources */,
@@ -184,7 +218,9 @@
 				C998116E28E5756B007AB58A /* calculator.swift in Sources */,
 				C971ECE728E99B6C00D29DB5 /* DeviceLocationService.swift in Sources */,
 				C9CC6B5128E61BB700D2159D /* RankingPoints.swift in Sources */,
+				C937947C28E9C973000E53D2 /* HRmaxView.swift in Sources */,
 				C97F94B728E6E40D00152623 /* File.swift in Sources */,
+				C937947828E9C648000E53D2 /* FitnessCalc.swift in Sources */,
 				C972477528E4A1B100E4BB80 /* ForestSurviveApp.swift in Sources */,
 				C995F36728E9B521002D6DFD /* Calendar.swift in Sources */,
 			);
