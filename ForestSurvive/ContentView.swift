@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import Combine
 
 
 
@@ -16,6 +17,12 @@ struct ContentView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Task.date, ascending: false)]) // here i can sort resoults
     private var tasks: FetchedResults<Task>
+    
+    @StateObject var deviceLocationService = DeviceLocationService.shared
+
+    @State var tokens: Set<AnyCancellable> = []
+    @State var coordinates: (lat: Double, lon: Double) = (0, 0)
+    
     
     
     @State private var showMenu: Bool = false
@@ -34,19 +41,20 @@ struct ContentView: View {
         navBarApperance.shadowColor = .clear
         UINavigationBar.appearance().scrollEdgeAppearance = navBarApperance
         UINavigationBar.appearance().tintColor = UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)
-        
     }
     
+
     
     
     var body: some View {
+        
         
         NavigationView {
             
             ZStack{
                 // Color.gray.ignoresSafeArea(.all, edges: .all)
                 Form {
-                    Section(header: Text("Your points") ){
+                    Section(header: Text("Your last simulation  points") ){
                         HStack{
                             Spacer()
                             VStack{
@@ -54,6 +62,8 @@ struct ContentView: View {
                                     .padding(.top)
                                 Button {
                                     MyPoints1 = Shared.shared.MyPoints
+                                    lat = coordinates.lat
+                                    long = coordinates.lon
                                    // addResoult()
                                 } label: {
                                     Image(systemName: "arrow.clockwise")
@@ -83,8 +93,10 @@ struct ContentView: View {
                             
                         }
                         
+                        
+                        
                     }
-                    Section(header: Text("Set your latitude and longitude") ) {
+                    Section(header: Text("Set your latitude and longitude if data is incorrect") ) {
                         VStack {
                             HStack {
                                 VStack {
@@ -100,7 +112,13 @@ struct ContentView: View {
                                     
                                     Text("latitude")
                                         .padding(.bottom, 5.0)
-                                }.overlay(
+                                }.onAppear{
+                                    observeCoordinateUpdates()
+                                    observeDeniedLocationAccess()
+                                    deviceLocationService.requestLocationUpdates()
+                                    
+                                }
+                                    .overlay(
                                     RoundedRectangle(cornerRadius: 16)
                                         .stroke(.gray, lineWidth: 1))
                                 Spacer()
@@ -121,19 +139,34 @@ struct ContentView: View {
                                     RoundedRectangle(cornerRadius: 16)
                                         .stroke(.gray, lineWidth: 1))
                                 Spacer()
+                            }.onAppear{
+                                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                                    print("done")
+                                    lat = coordinates.lat
+                                    long = coordinates.lon
+                                })
+                               
                             }
                             
                         }
+                        
+                    
+                        
                     }
                     
+                    Section(header: Text("Points simulation data") ){
                         ForEach(tasks) { task in
                             Text(task.title ?? "Untitled")
                                 .onTapGesture {
                                     updateTask(task)
                                 }
                         }.onDelete(perform: deleteTasks)
+                    }
+                    
+                  
           
                    
+                    
                 }
                 
              
@@ -175,6 +208,9 @@ struct ContentView: View {
                 }
             }
         
+        
+        
+        
     
         }
     
@@ -197,7 +233,7 @@ struct ContentView: View {
 //        newResoult.date = Date()
 //            //save data
 //        saveContext()
-//        
+//
 //    }
     
     private func deleteTasks(offsets: IndexSet){
@@ -215,9 +251,52 @@ struct ContentView: View {
             saveContext()
         }
     }
-        
-        
+    
+    
+    func observeCoordinateUpdates() {
+        deviceLocationService.coordinatesPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                print("Handle \(completion) for error and finished subscription.")
+            } receiveValue: { coordinates in
+                self.coordinates = (coordinates.latitude, coordinates.longitude)
+            }
+            .store(in: &tokens)
     }
+
+    func observeDeniedLocationAccess() {
+        deviceLocationService.deniedLocationAccessPublisher
+            .receive(on: DispatchQueue.main)
+            .sink {
+                print("Handle access denied event, possibly with an alert.")
+            }
+            .store(in: &tokens)
+    }
+    
+//    func synhronizeLocation(){
+//
+//        let group = DispatchGroup()
+//
+//        group.enter()
+//
+//
+//        DispatchQueue.global(qos: .default).async {
+//            observeCoordinateUpdates()
+//            observeDeniedLocationAccess()
+//            deviceLocationService.requestLocationUpdates()
+//               group.leave()
+//           }
+//
+//        group.wait()
+//
+//            lat = coordinates.lat
+//            long = coordinates.lon
+//
+//    }
+//
+        
+        
+}
     
 
 
