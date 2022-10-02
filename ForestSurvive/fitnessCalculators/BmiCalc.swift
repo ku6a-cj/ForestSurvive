@@ -84,10 +84,18 @@ struct BmiCalc: View {
                 }
                 
                 Section(header: Text("Resoult")){
-                    
-                    VStack {
-                        Text("\(ResoultString)")
+                    VStack(alignment: .center) {
+                        Spacer()
+                        HStack {
+                            Text("\(ResoultString)")
+                                .multilineTextAlignment(.center)
+                            .padding(.top, 7.0)
+                        }
+                        Spacer()
                         Text("\(interpretation)")
+                            .multilineTextAlignment(TextAlignment.center)
+                            .padding(.bottom, 7.0)
+                        Spacer()
                     }
                     
                 }.onTapGesture {
