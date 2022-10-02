@@ -31,8 +31,8 @@ struct SideMenuView: View {
             .font(.title)
             .foregroundColor(.white)
             
-            NavigationLink(destination: calculator()){
-                Text("Calculator")
+            NavigationLink(destination: FitnessCalc()){
+                Text("Fitness Calculators")
             }
             .font(.title)
             .foregroundColor(.white)
