@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 import Combine
+import MapKit
 
 
 
@@ -22,8 +23,6 @@ struct ContentView: View {
 
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
-    
-    
     
     @State private var showMenu: Bool = false
     @State  var long = 21.0
@@ -96,8 +95,10 @@ struct ContentView: View {
                         
                         
                     }
-                    Section(header: Text("Set your latitude and longitude if data is incorrect") ) {
+                    Section(header: Text("Your location") ) {
                         VStack {
+                            MapVie(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
+                                .frame(height:280)
                             HStack {
                                 VStack {
                                     TextField("latitude", value: $lat, format: .number)
