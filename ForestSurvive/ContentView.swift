@@ -95,7 +95,7 @@ struct ContentView: View {
                         
                         
                     }
-                    Section(header: Text("Your location") ) {
+                    Section(header: Text("Your Location") ) {
                         VStack {
                             MapVie(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
                                 .frame(height:280)
