@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C971ECE528E98C8A00D29DB5 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971ECE428E98C8A00D29DB5 /* DeviceLocationService.swift */; };
+		C971ECE728E99B6C00D29DB5 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971ECE628E99B6C00D29DB5 /* DeviceLocationService.swift */; };
+		C971ECED28E99FD200D29DB5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971ECEC28E99FD200D29DB5 /* MapView.swift */; };
 		C972477528E4A1B100E4BB80 /* ForestSurviveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972477428E4A1B100E4BB80 /* ForestSurviveApp.swift */; };
 		C972477728E4A1B100E4BB80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972477628E4A1B100E4BB80 /* ContentView.swift */; };
 		C972477928E4A1B300E4BB80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C972477828E4A1B300E4BB80 /* Assets.xcassets */; };
@@ -24,7 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C971ECE428E98C8A00D29DB5 /* DeviceLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceLocationService.swift; path = "../../../Downloads/Kilo-Loco content main apple-device-location-ios/device-location-ios/DeviceLocationService.swift"; sourceTree = "<group>"; };
+		C971ECE628E99B6C00D29DB5 /* DeviceLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceLocationService.swift; path = "../../../../.Trash/Kilo-Loco content main apple-device-location-ios/device-location-ios/DeviceLocationService.swift"; sourceTree = "<group>"; };
+		C971ECEC28E99FD200D29DB5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C972477128E4A1B100E4BB80 /* ForestSurvive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForestSurvive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C972477428E4A1B100E4BB80 /* ForestSurviveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForestSurviveApp.swift; sourceTree = "<group>"; };
 		C972477628E4A1B100E4BB80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				C972477428E4A1B100E4BB80 /* ForestSurviveApp.swift */,
 				C972478228E4AA7900E4BB80 /* SideMenuView.swift */,
 				C972478428E4BBEA00E4BB80 /* Map.swift */,
+				C971ECEC28E99FD200D29DB5 /* MapView.swift */,
 				C998116D28E5756B007AB58A /* calculator.swift */,
 				C998117428E595A1007AB58A /* WebView.swift */,
 				C97F94B428E6DA9700152623 /* News.swift */,
@@ -82,7 +85,7 @@
 				C97F94B628E6E40D00152623 /* File.swift */,
 				C9A2D8FF28E82F19001F8590 /* Resoults.xcdatamodeld */,
 				C9A2D90228E83002001F8590 /* Persistance.swift */,
-				C971ECE428E98C8A00D29DB5 /* DeviceLocationService.swift */,
+				C971ECE628E99B6C00D29DB5 /* DeviceLocationService.swift */,
 				C972477828E4A1B300E4BB80 /* Assets.xcassets */,
 				C972477A28E4A1B300E4BB80 /* Preview Content */,
 			);
@@ -171,11 +174,12 @@
 				C972477728E4A1B100E4BB80 /* ContentView.swift in Sources */,
 				C97F94B528E6DA9700152623 /* News.swift in Sources */,
 				C972478528E4BBEA00E4BB80 /* Map.swift in Sources */,
+				C971ECED28E99FD200D29DB5 /* MapView.swift in Sources */,
 				C9A2D90128E82F19001F8590 /* Resoults.xcdatamodeld in Sources */,
 				C9A2D90328E83002001F8590 /* Persistance.swift in Sources */,
 				C998117528E595A1007AB58A /* WebView.swift in Sources */,
 				C998116E28E5756B007AB58A /* calculator.swift in Sources */,
-				C971ECE528E98C8A00D29DB5 /* DeviceLocationService.swift in Sources */,
+				C971ECE728E99B6C00D29DB5 /* DeviceLocationService.swift in Sources */,
 				C9CC6B5128E61BB700D2159D /* RankingPoints.swift in Sources */,
 				C97F94B728E6E40D00152623 /* File.swift in Sources */,
 				C972477528E4A1B100E4BB80 /* ForestSurviveApp.swift in Sources */,
@@ -310,7 +314,7 @@
 				DEVELOPMENT_TEAM = WYYD435V93;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please let us know your location to show you a route to academy";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let app see your locartion to show you route to Academy";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -340,7 +344,7 @@
 				DEVELOPMENT_TEAM = WYYD435V93;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please let us know your location to show you a route to academy";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Let app see your locartion to show you route to Academy";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

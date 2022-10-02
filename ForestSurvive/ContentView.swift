@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 import Combine
+import MapKit
 
 
 
@@ -22,8 +23,6 @@ struct ContentView: View {
 
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
-    
-    
     
     @State private var showMenu: Bool = false
     @State  var long = 21.0
@@ -54,7 +53,7 @@ struct ContentView: View {
             ZStack{
                 // Color.gray.ignoresSafeArea(.all, edges: .all)
                 Form {
-                    Section(header: Text("Your last simulation  points") ){
+                    Section(header: Text("Your Last Simulation  Points") ){
                         HStack{
                             Spacer()
                             VStack{
@@ -96,8 +95,10 @@ struct ContentView: View {
                         
                         
                     }
-                    Section(header: Text("Set your latitude and longitude if data is incorrect") ) {
+                    Section(header: Text("Your location") ) {
                         VStack {
+                            MapVie(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
+                                .frame(height:280)
                             HStack {
                                 VStack {
                                     TextField("latitude", value: $lat, format: .number)
@@ -233,7 +234,7 @@ struct ContentView: View {
 //        newResoult.date = Date()
 //            //save data
 //        saveContext()
-//        
+//
 //    }
     
     private func deleteTasks(offsets: IndexSet){
@@ -274,11 +275,11 @@ struct ContentView: View {
     }
     
 //    func synhronizeLocation(){
-//        
+//
 //        let group = DispatchGroup()
-//        
+//
 //        group.enter()
-//        
+//
 //
 //        DispatchQueue.global(qos: .default).async {
 //            observeCoordinateUpdates()
@@ -286,14 +287,14 @@ struct ContentView: View {
 //            deviceLocationService.requestLocationUpdates()
 //               group.leave()
 //           }
-//        
+//
 //        group.wait()
-//        
+//
 //            lat = coordinates.lat
 //            long = coordinates.lon
-//        
+//
 //    }
-//    
+//
         
         
 }
