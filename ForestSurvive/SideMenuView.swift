@@ -24,43 +24,69 @@ struct SideMenuView: View {
                 .padding(.horizontal, 16)
                 .blur(radius: 0.5)
            
-            
-            NavigationLink(destination: Map(long: $long, lat: $lat)){
-                Text("Set route to Academy")
-            }
-            .font(.title)
-            .foregroundColor(.white)
-            
-            NavigationLink(destination: FitnessCalc()){
-                Text("Fitness Calculators")
-            }
-            .font(.title)
-            .foregroundColor(.white)
-            
-            NavigationLink(destination: RankingPoints()){
-                Text("Ranking Points")
-            }
-            .font(.title)
-            .foregroundColor(.white)
-            
-            
-            NavigationLink(destination: News()){
-                Text("News")
-            }
-            .font(.title)
-            .foregroundColor(.white)
-            
-            NavigationLink(destination: Calendar()){
-                Text("Calendar")
-            }
-            .font(.title)
-            .foregroundColor(.white)
-            
-            
-            Link(destination: URL(string: "https://github.com/ku6a-cj")!){
-                Text("GIT")
-            }.font(.title)
+                
+            HStack {
+                Image(systemName: "globe.europe.africa")
+                    .foregroundColor(Color.white)
+                NavigationLink(destination: Map(long: $long, lat: $lat)){
+                        Text("Set route to Academy")
+                    }
+                    .font(.title)
                 .foregroundColor(.white)
+            }
+            
+            
+            HStack {
+                Image(systemName: "figure.climbing")
+                    .foregroundColor(Color.white)
+                NavigationLink(destination: FitnessCalc()){
+                    Text("Fitness Calculators")
+                }
+                .font(.title)
+            .foregroundColor(.white)
+            }
+            
+            HStack {
+                Image(systemName: "chart.bar.xaxis")
+                    .foregroundColor(Color.white)
+                NavigationLink(destination: RankingPoints()){
+                    Text("Ranking Points")
+                }
+                .font(.title)
+            .foregroundColor(.white)
+            }
+            
+            
+            HStack {
+                Image(systemName: "newspaper")
+                    .foregroundColor(Color.white)
+                NavigationLink(destination: News()){
+                    Text("News")
+                }
+                .font(.title)
+            .foregroundColor(.white)
+            }
+            
+            HStack {
+                Image(systemName: "calendar.badge.exclamationmark")
+                    .foregroundColor(Color.white)
+                NavigationLink(destination: Calendar()){
+                    Text("Calendar")
+                }
+                .font(.title)
+            .foregroundColor(.white)
+            }
+            
+            
+            
+            HStack {
+                Image(systemName: "shareplay")
+                    .foregroundColor(Color.white)
+                Link(destination: URL(string: "https://github.com/ku6a-cj")!){
+                    Text("GIT")
+                }.font(.title)
+                    .foregroundColor(.white)
+            }
             
           
             

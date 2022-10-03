@@ -29,6 +29,7 @@ struct ContentView: View {
     @State  var lat = 53.0
     @State private var showWebView = false
     @State var MyPoints1 = Shared.shared.MyPoints
+    @State var ItemSelected = 0
     
     
     
@@ -46,55 +47,32 @@ struct ContentView: View {
     
     
     var body: some View {
-        
+    
         
         NavigationView {
-            
+ 
             ZStack{
                 // Color.gray.ignoresSafeArea(.all, edges: .all)
+
                 Form {
                     Section(header: Text("Your Last Limulation  Score") ){
-                        HStack{
-                            Spacer()
-                            VStack{
-                                Text(String(MyPoints1 ?? 0))
-                                    .padding(.top)
-                                Button {
-                                    MyPoints1 = Shared.shared.MyPoints
-                                    lat = coordinates.lat
-                                    long = coordinates.lon
-                                   // addResoult()
-                                } label: {
-                                    Image(systemName: "arrow.clockwise")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 30)
-                                        .foregroundColor(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
-                                        .padding(.all, 13.0)
-                                    
-                                    
-                                    
-                                    
-                                    
-                                }
+                        ScrollView(.horizontal){
+                            LazyHStack(alignment: .center, spacing: -70){
+                                SimulatioScoreView()
+                                    .padding(.leading, -40.0)
+                                        .shadow(radius: 10)
+                                DaysTo()
+                                         .shadow(radius: 10)
+                                         .padding(.leading, 20.0)
+                                Localization()
+                                    .padding(.leading, 70.0)
+                                         .shadow(radius: 10)
+                        
                             }
-                            Spacer()
-                            
-                            Image(systemName: "figure.archery")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 80)
-                                .padding(.leading, 100.0)
-                            
-                            Spacer()
-                            
-                            
-                            
-                        }
-                        
-                        
-                        
+                        }.padding(.leading, -20.0).frame(height: 130)
                     }
+         
+                    
                     Section(header: Text("Your location") ) {
                         VStack {
                             MapVie(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
@@ -117,7 +95,6 @@ struct ContentView: View {
                                     observeCoordinateUpdates()
                                     observeDeniedLocationAccess()
                                     deviceLocationService.requestLocationUpdates()
-                                    
                                 }
                                     .overlay(
                                     RoundedRectangle(cornerRadius: 16)

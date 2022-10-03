@@ -306,7 +306,7 @@ struct RankingPoints: View {
                     AllPoints = Double(PePoints + InterviewPoints) + MaturaPoints
                     Shared.shared.MyPoints = AllPoints
                     
-                    addResoult()
+                   addResoult()
                     
                 } label: {
                     Text("calculate")

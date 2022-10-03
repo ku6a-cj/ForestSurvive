@@ -14,12 +14,12 @@ struct FitnessCalc: View {
         TabView {
                    HRmaxView()
                        .tabItem {
-                           Label("HRmax", systemImage: "list.dash")
+                           Label("HRmax", systemImage: "figure.run")
                        }
 
                    BmiCalc()
                        .tabItem {
-                           Label("Bmi Calculator", systemImage: "square.and.pencil")
+                           Label("Bmi Calculator", systemImage: "figure.dance")
                        }
                }
     }
