@@ -60,16 +60,16 @@ struct ContentView: View {
                             LazyHStack(alignment: .center, spacing: -70){
                                 SimulatioScoreView()
                                     .padding(.leading, -40.0)
-                                        .shadow(radius: 10)
+                                        //.shadow(radius: 10)
                                 DaysTo()
-                                         .shadow(radius: 10)
+                                         //.shadow(radius: 10)
                                          .padding(.leading, 20.0)
                                 Localization()
                                     .padding(.leading, 70.0)
-                                         .shadow(radius: 10)
+                                        // .shadow(radius: 10)
                         
                             }
-                        }.padding(.leading, -20.0).frame(height: 130)
+                        }.padding(.leading, -20.0).frame(height: 130).padding(.vertical, -20)
                     }
          
                     
@@ -132,21 +132,22 @@ struct ContentView: View {
                         
                     }
                     
-                    Section(header: Text("Points simulation data") ){
-                        ForEach(tasks) { task in
-                            
-                            VStack{
-                                DataBaseView( Points: task.title ?? "NN", DataM: task.date?.formatted(date: .numeric, time: .shortened) ?? "UNN DATE")
-                                // on tap does not work becouse it is already used in a DataBaseView to change colour while selecting
-//                                    .onTapGesture {
-//                                       // sel.toggle()
-//                                        updateTask(task)}
-                                
-                               // Text(task.title ?? "Untitled")
-                               // Text(task.date?.formatted(date: .numeric, time: .shortened) ?? "UNN DATE" )
+                    Section(header: Text("Points simulation data")){
+               
+                            ForEach(tasks) { task in
+                                VStack(spacing: -60) {
+                                    DataBaseView( Points: task.title ?? "NN", DataM: task.date?.formatted(date: .numeric, time: .shortened) ?? "UNN DATE", GenderChoice: task.gender ?? "UNNOWN")
+                                    // on tap does not work becouse it is already used in a DataBaseView to change colour while selecting
+    //                                    .onTapGesture {
+    //                                       // sel.toggle()
+    //                                        updateTask(task)}
+                                    
+                                   // Text(task.title ?? "Untitled")
+                                   // Text(task.date?.formatted(date: .numeric, time: .shortened) ?? "UNN DATE" )
                             }
-                              
-                        }.onDelete(perform: deleteTasks)
+                            .padding(.vertical, -35.0)
+                            }.onDelete(perform: deleteTasks)
+                     
                            
                         
                     }

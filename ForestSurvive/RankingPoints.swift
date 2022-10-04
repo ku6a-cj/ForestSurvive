@@ -367,6 +367,7 @@ struct RankingPoints: View {
         let newResoult = Task(context: viewContext)
         newResoult.title = "\(String(AllPoints)) " //\(Date().formatted(date: .numeric, time: .shortened))
         newResoult.date = Date()
+        newResoult.gender = GenderChoice
             //save data
         saveContext()
         
