@@ -76,7 +76,7 @@ struct Localization: View {
             Spacer()
         }
         .padding()
-        .background(Color(isSelected ? .blue : .white))
+        .background(Color(isSelected ? UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00) : .white))
         .cornerRadius(20)
        // .background(Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00)))
         .frame(width: 240, height: 160)

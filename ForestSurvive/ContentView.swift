@@ -55,7 +55,7 @@ struct ContentView: View {
                 // Color.gray.ignoresSafeArea(.all, edges: .all)
 
                 Form {
-                    Section(header: Text("Your Last Limulation  Score") ){
+                    Section(header: Text("Bar menus") ){
                         ScrollView(.horizontal){
                             LazyHStack(alignment: .center, spacing: -70){
                                 SimulatioScoreView()
@@ -119,7 +119,7 @@ struct ContentView: View {
                                 Spacer()
                             }.onAppear{
                                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-                                    print("done")
+                                    //print("done")
                                     lat = coordinates.lat
                                     long = coordinates.lon
                                 })
@@ -134,11 +134,21 @@ struct ContentView: View {
                     
                     Section(header: Text("Points simulation data") ){
                         ForEach(tasks) { task in
-                            Text(task.title ?? "Untitled")
-                                .onTapGesture {
-                                    updateTask(task)
-                                }
+                            
+                            VStack{
+                                DataBaseView( Points: task.title ?? "NN", DataM: task.date?.formatted(date: .numeric, time: .shortened) ?? "UNN DATE")
+                                // on tap does not work becouse it is already used in a DataBaseView to change colour while selecting
+//                                    .onTapGesture {
+//                                       // sel.toggle()
+//                                        updateTask(task)}
+                                
+                               // Text(task.title ?? "Untitled")
+                               // Text(task.date?.formatted(date: .numeric, time: .shortened) ?? "UNN DATE" )
+                            }
+                              
                         }.onDelete(perform: deleteTasks)
+                           
+                        
                     }
                     
                   
