@@ -27,6 +27,9 @@
 		C9A10F4528EC07320019131F /* DataBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A10F4428EC07320019131F /* DataBaseView.swift */; };
 		C9A2D90128E82F19001F8590 /* Resoults.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9A2D8FF28E82F19001F8590 /* Resoults.xcdatamodeld */; };
 		C9A2D90328E83002001F8590 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A2D90228E83002001F8590 /* Persistance.swift */; };
+		C9B63E7328EE112B00E8B21C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B63E6C28EE112A00E8B21C /* Task.swift */; };
+		C9B63E7528EE112B00E8B21C /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B63E6F28EE112B00E8B21C /* TaskViewModel.swift */; };
+		C9B63E7628EE112B00E8B21C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B63E7128EE112B00E8B21C /* Home.swift */; };
 		C9CC6B5128E61BB700D2159D /* RankingPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CC6B5028E61BB700D2159D /* RankingPoints.swift */; };
 		C9FDC07828EA27D900B76DD7 /* SimulatioScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FDC07728EA27D900B76DD7 /* SimulatioScoreView.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +56,9 @@
 		C9A10F4428EC07320019131F /* DataBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseView.swift; sourceTree = "<group>"; };
 		C9A2D90028E82F19001F8590 /* Resoults.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Resoults.xcdatamodel; sourceTree = "<group>"; };
 		C9A2D90228E83002001F8590 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		C9B63E6C28EE112A00E8B21C /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		C9B63E6F28EE112B00E8B21C /* TaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		C9B63E7128EE112B00E8B21C /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		C9CC6B5028E61BB700D2159D /* RankingPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingPoints.swift; sourceTree = "<group>"; };
 		C9FDC07728EA27D900B76DD7 /* SimulatioScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatioScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +145,9 @@
 				C937947F28E9C9E4000E53D2 /* DataBase */,
 				C97F94B628E6E40D00152623 /* File.swift */,
 				C963BE1F28EB076A00747AB5 /* DeviceLocationService.swift */,
+				C9B63E6B28EE112A00E8B21C /* Model */,
+				C9B63E7028EE112B00E8B21C /* View */,
+				C9B63E6E28EE112B00E8B21C /* ViewModel */,
 				C972477828E4A1B300E4BB80 /* Assets.xcassets */,
 				C972477A28E4A1B300E4BB80 /* Preview Content */,
 			);
@@ -151,6 +160,30 @@
 				C972477B28E4A1B300E4BB80 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C9B63E6B28EE112A00E8B21C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9B63E6C28EE112A00E8B21C /* Task.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9B63E6E28EE112B00E8B21C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C9B63E6F28EE112B00E8B21C /* TaskViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C9B63E7028EE112B00E8B21C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C9B63E7128EE112B00E8B21C /* Home.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +260,7 @@
 				C972478328E4AA7900E4BB80 /* SideMenuView.swift in Sources */,
 				C9FDC07828EA27D900B76DD7 /* SimulatioScoreView.swift in Sources */,
 				C972477728E4A1B100E4BB80 /* ContentView.swift in Sources */,
+				C9B63E7328EE112B00E8B21C /* Task.swift in Sources */,
 				C97F94B528E6DA9700152623 /* News.swift in Sources */,
 				C937947A28E9C88B000E53D2 /* BmiCalc.swift in Sources */,
 				C93AA12A28EAE1000051F71F /* DaysTo.swift in Sources */,
@@ -234,6 +268,7 @@
 				C971ECED28E99FD200D29DB5 /* MapView.swift in Sources */,
 				C9A10F4528EC07320019131F /* DataBaseView.swift in Sources */,
 				C963BE2028EB076A00747AB5 /* DeviceLocationService.swift in Sources */,
+				C9B63E7528EE112B00E8B21C /* TaskViewModel.swift in Sources */,
 				C9A2D90128E82F19001F8590 /* Resoults.xcdatamodeld in Sources */,
 				C9A2D90328E83002001F8590 /* Persistance.swift in Sources */,
 				C998117528E595A1007AB58A /* WebView.swift in Sources */,
@@ -241,6 +276,7 @@
 				C937947C28E9C973000E53D2 /* HRmaxView.swift in Sources */,
 				C97F94B728E6E40D00152623 /* File.swift in Sources */,
 				C937947828E9C648000E53D2 /* FitnessCalc.swift in Sources */,
+				C9B63E7628EE112B00E8B21C /* Home.swift in Sources */,
 				C972477528E4A1B100E4BB80 /* ForestSurviveApp.swift in Sources */,
 				C995F36728E9B521002D6DFD /* Calendar.swift in Sources */,
 			);

@@ -70,7 +70,7 @@ struct SideMenuView: View {
             HStack {
                 Image(systemName: "calendar.badge.exclamationmark")
                     .foregroundColor(Color.white)
-                NavigationLink(destination: Calendar()){
+                NavigationLink(destination: Calendarr()){
                     Text("Calendar")
                 }
                 .font(.title)

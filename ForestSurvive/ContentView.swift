@@ -152,6 +152,39 @@ struct ContentView: View {
                         
                     }
                     
+                    Section(header: Text("Events List")){
+                        VStack{
+                            let taskModel: TaskViewModel = TaskViewModel()
+                            let tasks = taskModel.storedTasks
+                            
+                                    ForEach(tasks){Task in
+                                        VStack(alignment: .leading, spacing: 12) {
+                                            HStack(alignment: .top, spacing: 50){
+                                                VStack(alignment: .leading, spacing: 12){
+                                                    Text(Task.taskTitle)
+                                                        .font(.title2.bold())
+                                                
+                                                    
+                                                }
+                                                Text(Task.taskDate.formatted(date: .numeric, time: .shortened))
+                                            }
+                                            Text(Task.taskDescription)
+                                                .font(.callout)
+                                                .foregroundStyle(.secondary)
+                                        }
+                                        .foregroundColor( .white )
+                                        .padding(12)
+                                        .frame(width: 330)
+                                        .background(
+                                                Color(UIColor(red: 0.12, green: 0.64, blue: 0.27, alpha: 1.00))
+                                                    .cornerRadius(25)
+                                                    .opacity( 1 )
+                                                
+                                        )
+                            }
+                        }
+                    }
+                    
                   
           
                    
